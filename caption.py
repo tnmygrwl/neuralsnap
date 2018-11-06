@@ -9,7 +9,7 @@ r = requests.post(
     files={
         'image': open(path, 'rb'),
     },
-    headers={'api-key': '8a8842f4-e2fc-45f4-b2b9-4c24903cca76'}
+    headers={'api-key': ''}
 )
 TEXT = r.json()
 TEXT = TEXT['output']
