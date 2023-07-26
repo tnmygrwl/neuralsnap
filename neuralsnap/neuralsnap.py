@@ -71,18 +71,15 @@ class ImageNarrator(object):
         self.NEURALTALK2_PATH = os.path.join(os.getcwd(), '..', 'neuraltalk2')
         self.CHARRNN_PATH = os.path.join(os.getcwd(), '..', 'char-rnn')
 
-        self.expansion_obj_list = list()
-        self.caption_list = list()
+        self.expansion_obj_list = []
+        self.caption_list = []
         self.html_fp = None
         self.url = None
 
     def get_result(self):
         self.narrate()
         self.process_to_html()
-        if self.upload:
-            return self.url
-        else:
-            return 'file://'+self.html_fp
+        return self.url if self.upload else f'file://{self.html_fp}'
 
     def narrate(self):
         # NeuralTalk2 Image Captioning

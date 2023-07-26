@@ -21,7 +21,7 @@ cfd = nltk.ConditionalFreqDist(bigrams)
 # pick a random word from the corpus to start with
 word = random.choice(TEXT)
 # generate 15 more words
-for i in range(15):
+for _ in range(15):
     print(word, end="")
     if word in cfd:
         word = random.choice(list(cfd[word]))
